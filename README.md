@@ -1,6 +1,6 @@
 # Jupyter-Boilerplate Project
 
-This project provides configurations for using Jupyter and R together in VSCode. The `devcontainer.json` file specifies the Docker container configuration, leveraging the Remote-Containers feature in VSCode to provide a convenient, unified development environment.
+This project provides configurations for using Jupyter and Julia together in VSCode.
 
 ## Getting Started
 
