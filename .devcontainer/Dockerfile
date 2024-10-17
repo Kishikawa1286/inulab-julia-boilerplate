@@ -1,5 +1,7 @@
 FROM jupyter/datascience-notebook:julia-1.9.3
 
+# Change this environment variable depending on the number of processers.
+# See: https://docs.julialang.org/en/v1/manual/multi-threading/
 ENV JULIA_NUM_THREADS=4
 
 USER root
