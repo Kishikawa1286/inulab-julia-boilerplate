@@ -11,7 +11,7 @@
                 "julialang.language-julia"
             ],
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/zsh",
+                "terminal.integrated.defaultProfile.linux": "zsh",
                 "jupyter.experiments.optOutFrom": [
                     "NativeNotebookEditor"
                 ],
