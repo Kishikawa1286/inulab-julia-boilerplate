@@ -4,7 +4,10 @@ USER root
 
 ARG JULIA_VERSION="1.11.2"
 
+# Number of threads used by Julia
+# See: https://docs.julialang.org/en/v1/manual/multi-threading/
 ENV JULIA_NUM_THREADS="4"
+# Skip interactive prompts in apt commands
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt update && \
@@ -18,14 +21,14 @@ RUN apt update && \
     sh -c "$(wget ${OH_MY_ZSH_INSTALLATION_SCRIPT_URL} -O -)"
 
 # Install Git LFS
-# https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
+# See: https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
 ARG GIT_LFS_INSTALLATION_SCRIPT_URL="https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh"
 RUN apt update && \
     curl -s ${GIT_LFS_INSTALLATION_SCRIPT_URL} | bash && \
     apt install -y git-lfs
 
 # Install Julia
-# https://docs.julialang.org/en/v1/manual/installation/
+# See: https://docs.julialang.org/en/v1/manual/installation/
 ARG JULIA_INSTALLATION_SCRIPT_URL="https://install.julialang.org"
 ARG JULIAUP_DIR="/root/.juliaup"
 ARG JULIAUP="${JULIAUP_DIR}/bin/juliaup"
