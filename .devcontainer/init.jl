@@ -11,7 +11,7 @@ function main()
             Pkg.PackageSpec(name="Plots"),
             Pkg.PackageSpec(name="PyPlot"),
             Pkg.PackageSpec(name="StatsPlots"),
-            Pkg.PackageSpec(name="Ipopt", version="1.7.0")
+            Pkg.PackageSpec(name="Ipopt", version="1.6.7")
         ]
     )
     Pkg.precompile()
