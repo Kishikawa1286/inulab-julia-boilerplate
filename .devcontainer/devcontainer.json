@@ -15,8 +15,6 @@
                 "jupyter.experiments.optOutFrom": [
                     "NativeNotebookEditor"
                 ],
-               "julia.environmentPath": "/usr/local/bin/julia",
-               "julia.executablePath": "/usr/local/bin/julia",
                 "[julia]": {
                     "editor.defaultFormatter": "julialang.language-julia",
                     "editor.formatOnSave": true
