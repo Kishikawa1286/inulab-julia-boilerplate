@@ -3,6 +3,7 @@ FROM ubuntu:24.04
 USER root
 
 ARG JULIA_VERSION="1.11.2"
+ARG PYTHON_VERSION="3.11"
 
 # Number of threads used by Julia
 # See: https://docs.julialang.org/en/v1/manual/multi-threading/
@@ -43,12 +44,15 @@ RUN curl -fsSL ${JULIA_INSTALLATION_SCRIPT_URL} | \
     ${JULIAUP} default ${JULIA_VERSION}
 
 # Run init.jl
-ARG INIT_SCRIPT_DIR="/tmp"
-ARG INIT_SCRIPT_PATH="${INIT_SCRIPT_DIR}/init.jl"
-ARG JULIA="/root/.juliaup/bin/julia"
-COPY ./init.jl ${INIT_SCRIPT_DIR}
-RUN ${JULIA} ${INIT_SCRIPT_PATH} && \
-    rm ${INIT_SCRIPT_PATH}
+ARG TEMP_DIR="/tmp"
+ARG INIT_SCRIPT_PATH="${TEMP_DIR}/init.jl"
+ARG PROJECT_FILE_PATH="${TEMP_DIR}/Project.toml"
+ARG JULIA="${JULIAUP_DIR}/bin/julia"
+COPY ["Project.toml", "${PROJECT_FILE_PATH}"]
+COPY ["init.jl", "${INIT_SCRIPT_PATH}"]
+RUN ${JULIA} ${INIT_SCRIPT_PATH} ${TEMP_DIR} ${PYTHON_VERSION} && \
+    rm ${INIT_SCRIPT_PATH} && \
+    rm ${PROJECT_FILE_PATH}
 
 # Clean up apt
 RUN apt autoremove -y && \

@@ -16,11 +16,11 @@ Or you can use [GitHub Codespaces](https://marketplace.visualstudio.com/items?it
 
 ## Update the Project
 
-1. Update `JULIA_VERSION` argument in `.devcontainer/Dockerfile` file.
+1. Update `JULIA_VERSION` argument in `.devcontainer/Dockerfile`.
     You can check the available versions on the [releases page](https://github.com/JuliaLang/julia/releases).
 
-2. Update Python versions in `.devcontainer/init.jl` file.
+2. Update Python versions in `.devcontainer/Dockerfile`.
 
-3. Update the Julia package versions in `.devcontainer/init.jl` file.
+3. Update the Julia package versions in `.devcontainer/Project.toml`.
 
-4. Update the VSCode extension versions in `.devcontainer/devcontainer.json` file.
+4. Update the VSCode extension versions in `.devcontainer/devcontainer.json`.
