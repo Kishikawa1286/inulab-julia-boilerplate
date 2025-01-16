@@ -11,7 +11,11 @@ ENV JULIA_NUM_THREADS="4"
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt update && \
-    apt install -y curl git wget
+    apt install -y \
+        curl \
+        fonts-ipafont \
+        git \
+        wget
 
 # Install Oh My Zsh
 # See: https://ohmyz.sh
